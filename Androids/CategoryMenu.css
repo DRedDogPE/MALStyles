@@ -1,0 +1,127 @@
+#list_surround > table:first-of-type:before {
+	position: fixed;
+	display: block;
+	content: '';
+	width: 1px;
+	height: 440px;
+	right: 25px;
+	bottom: 60px;
+	background-color: rgb(83, 83, 83);
+}
+
+#list_surround > table:first-of-type {
+	position: fixed !important;
+	display: block;
+	right: 116px;
+	bottom: 350px;
+	width: 0;
+	height: 0;
+	z-index: 4;
+}
+
+/* MENU BUTTONS */
+.status_not_selected, .status_selected { 
+	position: relative !important; 
+	display: block;
+	margin-top: 10px;
+	width: 90px; 
+	height: 30px;
+}
+
+.status_not_selected a, .status_selected a {
+	position: absolute;
+	display: block;
+	width: 90px; 
+	height: 30px;
+	font-size: 0;
+}
+
+.status_not_selected:before, .status_selected:before,
+.status_not_selected a:before, .status_selected a:before {
+	position: absolute;
+	display: inline-block;
+	content: '';
+	width: 5px;
+	height: 5px;
+	padding: 0;
+	border-radius: 10px;
+}
+
+.status_not_selected:before, .status_selected:before {
+	left: 87px;
+	top: -2px;
+	border: solid 1px #535353;
+	background-color: rgb(255, 255, 255);
+	transition: left .3s linear, top .3s linear, padding .3s linear;
+	-webkit-transition: left .3s linear, top .3s linear, padding .3s linear;
+}
+
+.status_not_selected:hover:before, .status_selected:before { 
+	left: 83px; 
+	top: -6px; 
+	padding: 4px; 
+	border: solid 1px #e2465c; 
+}
+
+.status_not_selected:after, .status_selected:after {
+	position: absolute;
+	display: inline-block;
+	content: '';
+	left: 116px;
+	top: 1px;
+	width: 35px;
+	height: 1px;
+	background-color: rgb(226, 70, 92);
+	transition: all .2s linear;
+	-webkit-transition: all .2s linear;
+	z-index: -1;
+}
+
+.status_not_selected:hover:after, .status_selected:after { left: 81px; }
+
+.status_not_selected a:before, .status_selected a:before {
+	left: 88px;
+	top: -1px;
+	background-color: transparent;
+}
+
+.status_not_selected a:hover:before, .status_selected a:before { background-color: rgb(226, 70, 92); }
+
+.status_not_selected a:after, .status_selected a:after {
+	display: block;
+	width: 80px;
+	margin-top: -23px;
+	padding: 18px 10px 18px 0;
+	font-size: 14px;
+	text-align: right;
+	text-transform: uppercase;
+	transition: all linear .3s;
+	-webkit-transition: all linear .3s;
+}
+
+.status_not_selected a:hover:after, .status_selected a:after { color: #e2465c; }
+
+/* Currently watching */
+.status_not_selected a[href*="status=1"]:after, .status_selected a[href*="status=1"]:after { content: 'Watching'; }
+
+/* Completed */
+.status_not_selected a[href*="status=2"]:after, .status_selected a[href*="status=2"]:after { content: 'Completed'; }
+  
+/* On hold */
+.status_not_selected  a[href*="status=3"]:after, .status_selected a[href*="status=3"]:after { content: 'On Hold'; }
+
+/* Dropped */
+.status_not_selected a[href*="status=4"]:after, .status_selected a[href*="status=4"]:after { content: 'Dropped'; }
+  
+/* Planned */
+.status_not_selected a[href*="status=6"]:after, .status_selected a[href*="status=6"]:after { content: 'Planned'; }
+  
+/* All */
+.status_not_selected a[href*="status=7"]:after, .status_selected a[href*="status=7"]:after { content: 'All';  }
+
+@-moz-document url-prefix() {
+	.status_not_selected:before, .status_selected:before { top: -1px; }
+	.status_not_selected:hover:before, .status_selected:before { top: -5px; }
+	.status_not_selected:after, .status_selected:after { top: 2px; }
+	.status_not_selected a:before, .status_selected a:before { top: 0; }
+}
